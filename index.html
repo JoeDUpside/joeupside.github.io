@@ -1,16 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Upside Capital Markets</title>
-    <meta name="description" content="Elevating Commercial Real Estate Investments with Unparalleled Expertise and Innovative Strategies. Boston, Northeast." />
-    <meta name="keywords" content="UpsideCapital Real Estate Equity Boston Northeast Capital Markets Commercial Real Estate Investment Advisory" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" crossorigin href="/assets/index.css" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/assets/index.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>Upside Capital Markets</title>
+  <meta name="description" content="Elevating Commercial Real Estate Investments with Unparalleled Expertise and Innovative Strategies. Boston, Northeast.">
+  <meta name="keywords" content="UpsideCapital Real Estate Equity Boston Northeast">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://upsidecapitalmarkets.com/">
+  <meta property="og:title" content="Upside Capital Markets">
+  <meta property="og:description" content="Elevating Commercial Real Estate Investments with Unparalleled Expertise and Innovative Strategies. Boston, Northeast.">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Upside Capital Markets">
+  <meta name="twitter:description" content="Elevating Commercial Real Estate Investments with Unparalleled Expertise and Innovative Strategies. Boston, Northeast.">
+
+  <link rel="canonical" href="https://upsidecapitalmarkets.com/">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+
+    /* Nav active state helper */
+    .nav-link { cursor: pointer; }
+
+    /* Mobile menu transitions */
+    #mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    #mobile-menu.open {
+      transform: translateX(0);
+    }
+    #mobile-overlay {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    #mobile-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Hero text responsive scaling */
+    @media (max-width: 640px) {
+      .hero-title { font-size: clamp(2.5rem, 12vw, 6rem); }
+    }
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#hero" class="text-xl font-bold text-black no-underline">Upside Capital Markets</a>
+
+      <!-- Desktop nav -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#services" class="nav-link text-base font-medium text-gray-600 hover:text-black transition-colors">Services</a>
+        <a href="#about"    class="nav-link text-base font-medium text-gray-600 hover:text-black transition-colors">About</a>
+        <a href="#contact"  class="nav-link text-base font-medium text-gray-600 hover:text-black transition-colors">Contact</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-open" class="md:hidden p-1 text-gray-700 hover:text-black transition-colors" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-black/40 z-[60] md:hidden"></div>
+
+  <!-- Mobile drawer -->
+  <div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 bg-white z-[70] shadow-2xl flex flex-col md:hidden">
+    <div class="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+      <span class="text-lg font-bold text-black">Upside Capital Markets</span>
+      <button id="menu-close" class="p-1 text-gray-500 hover:text-black transition-colors" aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col px-6 py-6 gap-1">
+      <a href="#services" class="mobile-nav-link text-left text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 px-3 py-3 transition-colors">Services</a>
+      <a href="#about"    class="mobile-nav-link text-left text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 px-3 py-3 transition-colors">About</a>
+      <a href="#contact"  class="mobile-nav-link text-left text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 px-3 py-3 transition-colors">Contact</a>
+    </nav>
+    <div class="mt-auto px-6 pb-8">
+      <a href="#contact" class="mobile-nav-link block w-full bg-black text-white text-sm font-semibold px-6 py-3 hover:bg-gray-800 transition-colors text-center">Get Started</a>
+      <div class="mt-6 flex flex-col gap-2">
+        <a href="mailto:joed@upside-re-development.com" class="text-xs text-gray-500 hover:text-black transition-colors truncate">joed@upside-re-development.com</a>
+        <a href="tel:6178940445" class="text-xs text-gray-500 hover:text-black transition-colors">617.894.0445</a>
+        <a href="https://www.linkedin.com/company/upsideholds/" target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-1.5 text-xs text-gray-500 hover:text-black transition-colors mt-1">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero" class="pt-32 pb-20 px-6">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="hero-title text-9xl font-bold text-black leading-none mb-6 tracking-tight">
+        Upside Capital<br>Markets
+      </h1>
+      <p class="text-2xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Elevating Commercial Real Estate Investments with Unparalleled Expertise and Innovative Strategies
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#services" class="bg-black text-white text-base font-semibold px-8 py-4 hover:bg-gray-800 transition-colors">Explore Our Services</a>
+        <a href="#contact"  class="bg-white text-black text-base font-semibold px-8 py-4 border-2 border-black hover:bg-gray-50 transition-colors">Join Our Community</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WELCOME ===================== -->
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-black mb-16 max-w-3xl mx-auto leading-tight">
+        Welcome to the most innovative Capital Markets Commercial Real Estate Platform
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div>
+          <h3 class="text-2xl font-bold text-black mb-4">Comprehensive Expertise</h3>
+          <p class="text-base text-gray-600 leading-relaxed">Our team of seasoned professionals brings decades of experience in commercial real estate, capital markets, and investment strategy.</p>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-black mb-4">Innovative Approach</h3>
+          <p class="text-base text-gray-600 leading-relaxed">We leverage cutting-edge data analytics and market insights to deliver customized solutions that maximize returns for our clients.</p>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-black mb-4">Developer-Centric Focus</h3>
+          <p class="text-base text-gray-600 leading-relaxed">Our unwavering commitment to our clients' success is the cornerstone of our business. We work tirelessly to empower them to achieve extraordinary results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section id="services" class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-black mb-16 text-center">Our Comprehensive Suite of Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="p-6 border border-gray-100 hover:border-gray-300 transition-colors">
+          <div class="text-6xl font-bold text-gray-100 mb-2 leading-none select-none">01</div>
+          <h3 class="text-xl font-bold text-black mb-3">Investment Advisory</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Providing expert guidance on portfolio optimization, risk management, and capital allocation strategies.</p>
+        </div>
+
+        <div class="p-6 border border-gray-100 hover:border-gray-300 transition-colors">
+          <div class="text-6xl font-bold text-gray-100 mb-2 leading-none select-none">02</div>
+          <h3 class="text-xl font-bold text-black mb-3">Acquisition and Disposition</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Leveraging our extensive network and market intelligence to facilitate successful transactions.</p>
+        </div>
+
+        <div class="p-6 border border-gray-100 hover:border-gray-300 transition-colors">
+          <div class="text-6xl font-bold text-gray-100 mb-2 leading-none select-none">03</div>
+          <h3 class="text-xl font-bold text-black mb-3">Asset Management</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Actively managing properties to enhance performance and maximize returns for our clients.</p>
+        </div>
+
+        <div class="p-6 border border-gray-100 hover:border-gray-300 transition-colors">
+          <div class="text-6xl font-bold text-gray-100 mb-2 leading-none select-none">04</div>
+          <h3 class="text-xl font-bold text-black mb-3">Research and Insights</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Providing data-driven market analysis and thought leadership to inform our clients' investment decisions.</p>
+        </div>
+
+        <div class="p-6 border border-gray-100 hover:border-gray-300 transition-colors">
+          <div class="text-6xl font-bold text-gray-100 mb-2 leading-none select-none">05</div>
+          <h3 class="text-xl font-bold text-black mb-3">Marketing and Communication</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Our network of brand experts will bring your projects to qualified investors and targeted demographics.</p>
+        </div>
+
+        <div class="p-6 border border-gray-100 hover:border-gray-300 transition-colors">
+          <div class="text-6xl font-bold text-gray-100 mb-2 leading-none select-none">06</div>
+          <h3 class="text-xl font-bold text-black mb-3">Architecture &amp; Design</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Award-winning world-renowned firms leverage cutting-edge strategies for best in class results.</p>
+        </div>
+
+        <div class="p-6 border border-gray-100 hover:border-gray-300 transition-colors">
+          <div class="text-6xl font-bold text-gray-100 mb-2 leading-none select-none">07</div>
+          <h3 class="text-xl font-bold text-black mb-3">Permitting &amp; Entitlements</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Decades of Experience, hundreds of projects offering execution as a service.</p>
+        </div>
+
+        <div class="p-6 border border-gray-100 hover:border-gray-300 transition-colors">
+          <div class="text-6xl font-bold text-gray-100 mb-2 leading-none select-none">08</div>
+          <h3 class="text-xl font-bold text-black mb-3">Pro Forma Analysis &amp; Support</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Data verification, project development and comprehensive financial modeling.</p>
+        </div>
+
+        <div class="p-6 border border-gray-100 hover:border-gray-300 transition-colors">
+          <div class="text-6xl font-bold text-gray-100 mb-2 leading-none select-none">09</div>
+          <h3 class="text-xl font-bold text-black mb-3">Joint Ventures &amp; Strategic Partnership</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Achieve highest outcomes and new levels of growth through strategic collaborations.</p>
+        </div>
+
+        <div class="p-6 border border-gray-100 hover:border-gray-300 transition-colors">
+          <div class="text-6xl font-bold text-gray-100 mb-2 leading-none select-none">10</div>
+          <h3 class="text-xl font-bold text-black mb-3">Equity &amp; Debt Finance</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Refinance, LBO, GP &amp; LP sales, credit lines and cross collateralization solutions.</p>
+        </div>
+
+        <div class="p-6 border border-gray-100 hover:border-gray-300 transition-colors">
+          <div class="text-6xl font-bold text-gray-100 mb-2 leading-none select-none">11</div>
+          <h3 class="text-xl font-bold text-black mb-3">Hiring &amp; Recruiting Support</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Project specific or new markets — leverage our expertise finding capable and dialed in talent.</p>
+        </div>
+
+        <div class="p-6 border border-gray-100 hover:border-gray-300 transition-colors">
+          <div class="text-6xl font-bold text-gray-100 mb-2 leading-none select-none">12</div>
+          <h3 class="text-xl font-bold text-black mb-3">Construction Management</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Top-tier pre-construction resources minimize risk and deliver exceptional results.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" class="py-20 px-6 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-black mb-16 text-center">Empowering Investors and Developers to Achieve New Heights</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div class="text-center md:text-left">
+          <h3 class="text-2xl font-bold text-black mb-3">Goal-Oriented</h3>
+          <p class="text-base text-gray-600 leading-relaxed">We are laser-focused on helping our clients achieve their investment objectives.</p>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="text-2xl font-bold text-black mb-3">Innovative</h3>
+          <p class="text-base text-gray-600 leading-relaxed">Our forward-thinking strategies and data-driven approach set us apart from the competition.</p>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="text-2xl font-bold text-black mb-3">Collaborative</h3>
+          <p class="text-base text-gray-600 leading-relaxed">We work closely with our clients to foster long-term, mutually beneficial relationships.</p>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="text-2xl font-bold text-black mb-3">Principled</h3>
+          <p class="text-base text-gray-600 leading-relaxed">Integrity, transparency, and accountability are the cornerstones of our business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="py-20 px-6 bg-black text-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-4xl font-bold text-white mb-4">Connect with Us Today</h2>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          Ready to elevate your commercial real estate investments? Let's discuss how we can help you achieve extraordinary results.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-5 max-w-lg mx-auto">
+
+        <a href="mailto:joed@upside-re-development.com" class="flex items-start gap-4 group">
+          <div class="w-10 h-10 border border-white/20 flex items-center justify-center shrink-0 group-hover:border-white/60 transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 class="text-gray-400 group-hover:text-white transition-colors">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs text-gray-500 uppercase tracking-widest mb-0.5">Email</p>
+            <p class="text-sm text-gray-300 group-hover:text-white transition-colors">joed@upside-re-development.com</p>
+          </div>
+        </a>
+
+        <a href="tel:6178940445" class="flex items-start gap-4 group">
+          <div class="w-10 h-10 border border-white/20 flex items-center justify-center shrink-0 group-hover:border-white/60 transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 class="text-gray-400 group-hover:text-white transition-colors">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs text-gray-500 uppercase tracking-widest mb-0.5">Phone</p>
+            <p class="text-sm text-gray-300 group-hover:text-white transition-colors">617.894.0445</p>
+          </div>
+        </a>
+
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 border border-white/20 flex items-center justify-center shrink-0">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 class="text-gray-400">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs text-gray-500 uppercase tracking-widest mb-0.5">Location</p>
+            <p class="text-sm text-gray-300">Boston, MA · Northeast</p>
+          </div>
+        </div>
+
+        <a href="https://www.linkedin.com/company/upsideholds/" target="_blank" rel="noopener noreferrer"
+           class="flex items-start gap-4 group">
+          <div class="w-10 h-10 border border-white/20 flex items-center justify-center shrink-0 group-hover:border-white/60 transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                 class="text-gray-400 group-hover:text-white transition-colors">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs text-gray-500 uppercase tracking-widest mb-0.5">LinkedIn</p>
+            <p class="text-sm text-gray-300 group-hover:text-white transition-colors">linkedin.com/company/upsideholds</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="py-8 px-6 bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-base font-semibold text-white">Upside Capital Markets</p>
+      <a href="https://www.linkedin.com/company/upsideholds/" target="_blank" rel="noopener noreferrer"
+         class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+        </svg>
+        LinkedIn
+      </a>
+      <p class="text-sm text-gray-400">&copy; 2026 Upside Capital Markets. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===================== JS: mobile nav + smooth scroll ===================== -->
+  <script>
+    const menuOpen    = document.getElementById('menu-open');
+    const menuClose   = document.getElementById('menu-close');
+    const mobileMenu  = document.getElementById('mobile-menu');
+    const overlay     = document.getElementById('mobile-overlay');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    menuOpen.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+
+    // Close on mobile nav link click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  </script>
+
+</body>
 </html>
