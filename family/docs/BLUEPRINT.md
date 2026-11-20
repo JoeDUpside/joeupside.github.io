@@ -1,6 +1,6 @@
 # Hearth Family OS: Blueprint
 
-Status: v0.1 working prototype (web app you can install on iPhone). Written 2026-11-20.
+Status: v0.1 web app (tested, installable on iPhone) + v0.2 native iPhone/Widget/Watch source in `family/ios/` (**written but not yet compiled**; see `family/ios/README.md`). Written 2026-11-20.
 Household: 2 parents (Me, Heather) and 2 kids. Everyone has an Apple Watch. The kids get email addresses later.
 
 ---
@@ -86,6 +86,7 @@ watchOS app ───────────────────── comp
 - **Kids' Apple Watches**: if they are set up with **Family Setup** (no iPhone of their own), app and Calendar support is more limited than on a paired Watch. **I am not certain which third-party apps and complications Family Setup supports today.** Check Apple's current Family Setup documentation before relying on it. When the kids get email addresses, a child Apple Account under Family Sharing gives each of them a calendar you can share into.
 - **Sharing**: Family Sharing + a shared iCloud calendar "Family" for the events everyone needs, and CloudKit sharing for Hearth data.
 - Building it needs a Mac with Xcode and an Apple Developer account ($99/yr; verify the current price). This container can't compile iOS code.
+- **Done (v0.2 source):** EventKit agenda, Big Year, Pantry with Swift Charts, Home/Lock Screen widget, Watch app via WatchConnectivity, import of the web backup, XCTest port of the rule tests. **Not done:** CloudKit sync between the two parents' phones, Siri/App Intents, notifications.
 
 ## 4. Roadmap and risks: 12 months / 2–3 years / 4–10 years
 
