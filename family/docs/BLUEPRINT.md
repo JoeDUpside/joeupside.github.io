@@ -30,6 +30,8 @@ Why the minimum of 4 price points matters: with only 1 or 2 points, "cheapest 20
 
 ## 2. Research findings (verify before relying on them)
 
+Full rules + family adaptation: [Big_Ass_Calendar_Rules.md](Big_Ass_Calendar_Rules.md).
+
 ### Jesse Itzler's "Big A** Calendar" system
 Sources are podcasts and secondary write-ups. **I do not have a verified primary Itzler text for these details.**
 - **Big calendar**: one wall-sized view of the year. Adventures and priorities are scheduled first, and everything else fits around them. A paraphrase that circulates widely: "if it's not on the calendar, it's not a priority." **I cannot confirm that exact quote.**
